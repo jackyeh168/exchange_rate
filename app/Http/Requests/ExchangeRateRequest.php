@@ -29,9 +29,9 @@ class ExchangeRateRequest extends FormRequest
         $currency_types = $this->getCurrencyTypeList();
         
         return [
-            'from' => 'required|string|in:' . implode(',', $currency_types), // origin_currency
-            'to' => 'required|string',   // target currency
-            'price'=>'required'
+            'from' => 'required|string|in:' . implode(',', $currency_types), // origin currency
+            'to' => 'required|string|in:' . implode(',', $currency_types), // target currency
+            'price'=>'required|numeric'
         ];
     }
 

@@ -16,10 +16,14 @@ class ExchangeRateController extends Controller
     {
         $validated = $request->validated();
 
-        return $svc->convert(
+        $result = $svc->convert(
             $validated['from'],
             $validated['to'],
             $validated['price'],
         );
+
+        return response()->json([
+            'price' => $result
+        ]);
     }
 }
