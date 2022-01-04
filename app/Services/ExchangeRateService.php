@@ -1,11 +1,13 @@
 <?php
 namespace App\Services;
 
+use Illuminate\Support\Facades\Config;
+
 class ExchangeRateService
 {
     public function __construct()
     {
-        $this->rate_list = config('exchange_rate.currencies');
+        $this->rate_list = Config::get('exchange_rate.currencies');
     }
 
     public function convert($from, $to, $price)
